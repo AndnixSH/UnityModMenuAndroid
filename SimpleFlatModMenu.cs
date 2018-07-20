@@ -30,7 +30,8 @@ public class SimpleFlatModMenu : MonoBehaviour
     // {
     //   	NewBehaviourScript.MyGUI();
     // }
-    public void OnGUI()
+	// Unity editor: public void OnGUI()
+    public static void MyGUI()
     {
         // This is the bytes of .png image.
         // There must be a if-statement to load image once to avoid memory leaking
@@ -77,7 +78,8 @@ public class SimpleFlatModMenu : MonoBehaviour
         }
     }
 
-    public void MyMenu()
+	// Unity editor: public void MyMenu()
+    public static void MyMenu()
     {
         /// Credit
         // (x, y, width, height)
@@ -178,7 +180,8 @@ public class SimpleFlatModMenu : MonoBehaviour
     }
 
     /// Load GUIStyle
-    public void Start()
+	// Unity editor: public static void Start()
+    public static void Start()
     {
         if (BgStyle == null)
         {
@@ -693,4 +696,3 @@ public class SimpleFlatModMenu : MonoBehaviour
         Image.LoadImage(rawData);
     }
 }
-
