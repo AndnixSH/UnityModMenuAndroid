@@ -28,7 +28,7 @@ public class SimpleFlatModMenu : MonoBehaviour
     // and add:
     // public void OnGUI()
     // {
-    //   	NewBehaviourScript.MyGUI();
+    //   	MyClassNameOfModMenu.MyGUI();
     // }
 	// Unity editor: public void OnGUI()
     public static void MyGUI()
