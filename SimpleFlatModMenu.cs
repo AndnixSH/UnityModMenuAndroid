@@ -8,6 +8,8 @@ public class SimpleFlatModMenu : MonoBehaviour
     public static GUIStyle BtnStyle1, BtnStyle2, BtnStyle3;
     public static bool toggle1, toggle2, toggle3;
 
+    public static float time = 0;
+
     // Size of image/logo (x, y, width, height)
     public static Rect imageRect = new Rect(10, 10, 70, 70);
     public static bool buttonPressed = false;
@@ -49,7 +51,6 @@ public class SimpleFlatModMenu : MonoBehaviour
         if (imageRect.Contains(Event.current.mousePosition) && Event.current.type == EventType.MouseDrag)
         {
             buttonPressed = true;
-            ifDragged = true;
         }
         else if (buttonPressed && Event.current.type == EventType.MouseDrag)
         {
@@ -57,12 +58,19 @@ public class SimpleFlatModMenu : MonoBehaviour
             // Invert y fix for Android: -= Event.current.delta.y;
             // Normal: += Event.current.delta.y;
             imageRect.y -= Event.current.delta.y;
-            ifDragged = true;
+            
+	    // Menu will not appear if dragging menu more than 0.2 sec.
+            // This is to solve tapping sensitive issue.
+            time += Time.deltaTime;
+            if (time > 0.2f)
+            {
+                ifDragged = true;
+            }
         }
         else if (imageRect.Contains(Event.current.mousePosition) && Event.current.type == EventType.MouseUp)
         {
             buttonPressed = false;
-            
+            time = 0;
             if (!ifDragged)
                 ShowHide = !ShowHide;
             ifDragged = false;
