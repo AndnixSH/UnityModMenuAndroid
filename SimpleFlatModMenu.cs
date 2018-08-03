@@ -61,10 +61,10 @@ public class SimpleFlatModMenu : MonoBehaviour
             // Normal: += Event.current.delta.y;
             imageRect.y -= Event.current.delta.y;
 			
-            // Menu will not appear if dragging menu more than 0.2 sec.
+            // Menu will not appear if dragging menu more than 0.4 sec.
             // This is to solve tapping sensitive issue.
             time += Time.deltaTime;
-            if (time > 0.5f)
+            if (time > 0.4f)
             {
                 ifDragged = true;
             }
