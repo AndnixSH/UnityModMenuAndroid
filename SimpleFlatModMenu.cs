@@ -69,7 +69,7 @@ public class SimpleFlatModMenu : MonoBehaviour
                 ifDragged = true;
             }
         }
-        else if (Event.current.type == EventType.MouseUp)
+        else if (imageRect.Contains(Event.current.mousePosition) && Event.current.type == EventType.MouseUp)
         {
             buttonPressed = false;
             time = 0;
