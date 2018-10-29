@@ -32,9 +32,10 @@ public class UnityModMenuAndroid : MonoBehaviour
     // {
     //   	MyClassNameOfModMenu.OnGUI();
     // }
-    // For unity editor: public void OnGUI()
-    // For dnSpy: public static void OnGUI()
-    public void OnGUI()
+	// !!! IMPORTANT !!!
+    // To edit in unity editor, please change this to: public void OnGUI()
+    // To add in the game using dnSpy, change back to: public static void OnGUI()
+    public static void OnGUI()
     {
         // This is the bytes of .png image.
         // There must be a if-statement to load image once to avoid memory leaking
@@ -57,9 +58,10 @@ public class UnityModMenuAndroid : MonoBehaviour
         }
     }
 
-    // For Unity editor: public void MyMenu()
-    // For dnSpy: public static void MyMenu()
-    public void ModMenuGUI()
+    // !!! IMPORTANT !!!
+    // To edit in unity editor, please change this to: public void ModMenuGUI()
+    // To add in the game using dnSpy, change back to: public static void ModMenuGUI()
+    public static void ModMenuGUI()
     {
         /// Credit
         // (x, y, width, height)
@@ -347,7 +349,10 @@ public class UnityModMenuAndroid : MonoBehaviour
         }
     }
 
-    public void Logo(int windowID)
+	// !!! IMPORTANT !!!
+    // To edit in unity editor, please change this to: public void Logo(int windowID)
+    // To add in the game using dnSpy, change back to: public static void Logo(int windowID)
+    public static void Logo(int windowID)
     {
         //This is the bytes of .png image.
         //There must be a if-statement to load image once to avoid memory leaking
