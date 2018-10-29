@@ -33,8 +33,8 @@ public class UnityModMenuAndroid : MonoBehaviour
     //   	MyClassNameOfModMenu.OnGUI();
     // }
 	// !!! IMPORTANT !!!
-    // To edit in unity editor, please change this to: public void OnGUI()
-    // To add in the game using dnSpy, change back to: public static void OnGUI()
+    // To use this code in unity editor, please change this to: public void OnGUI()
+    // Before adding this code to the game using dnSpy, please add STATIC like this: public static void OnGUI()
     public static void OnGUI()
     {
         // This is the bytes of .png image.
@@ -59,8 +59,8 @@ public class UnityModMenuAndroid : MonoBehaviour
     }
 
     // !!! IMPORTANT !!!
-    // To edit in unity editor, please change this to: public void ModMenuGUI()
-    // To add in the game using dnSpy, change back to: public static void ModMenuGUI()
+    // To use this code in unity editor, please change this to: public void ModMenuGUI()
+    // Before adding this code to the game using dnSpy, please add STATIC like this: public static void ModMenuGUI()
     public static void ModMenuGUI()
     {
         /// Credit
@@ -350,8 +350,8 @@ public class UnityModMenuAndroid : MonoBehaviour
     }
 
 	// !!! IMPORTANT !!!
-    // To edit in unity editor, please change this to: public void Logo(int windowID)
-    // To add in the game using dnSpy, change back to: public static void Logo(int windowID)
+    // To use this code in unity editor, please change this to: public static void Logo(int windowID)
+    // Before adding this code to the game using dnSpy, please add STATIC like this: public static void Logo(int windowID)
     public static void Logo(int windowID)
     {
         //This is the bytes of .png image.
