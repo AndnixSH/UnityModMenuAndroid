@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class UnityModMenuAndroid2Logos : MonoBehaviour
+public class ModMenu : MonoBehaviour
 {
     /// fields
     public static GUIStyle BgStyle, OnStyle, OffStyle, LabelStyle, BtnStyle;
@@ -25,6 +25,9 @@ public class UnityModMenuAndroid2Logos : MonoBehaviour
 
     // Remember Y position
     public static int btnY, mulY;
+	
+	//Create instance
+	private static ModMenu instance;
 
     // Must be static if you create this as new class in dnSpy.
     // Find active classes like UIRoot, UIdrawcall, Soundmanager or something similar
@@ -129,36 +132,8 @@ public class UnityModMenuAndroid2Logos : MonoBehaviour
         }
 
         /// Clicker Button
-        // You can add own code or re-use code to do something fun like
-        // Instant win: Class1.scenario.InstantWin();
-        if (GUI.Button(BtnRect(4, false), "Instant win", BtnStyle))
-        {
-
-        }
-
-        /// Multiplier buttons. How to hack in game function:
-        // public int getDamage
-        // {
-        //     return this.get_dmg * MyClassNameOfModMenu.dmgMulti;
-        // }
-        if (GUI.Button(BtnRect(5, true), "DMG multiplier: " + dmgMulti.ToString(), BtnStyle))
-        {
-
-        }
-        if (GUI.Button(new Rect(rect.x + widthSize - 30, rect.y + btnY, 40, 40), "-", OffStyle))
-        {
-            if (dmgMulti > 1 && dmgMulti <= 10)
-                dmgMulti--;
-        }
-        if (GUI.Button(new Rect(rect.x + widthSize + 15, rect.y + btnY, 40, 40), "+", OffStyle))
-        {
-            if (dmgMulti >= 1 && dmgMulti < 10)
-                dmgMulti++;
-        }
-
-        /// Clicker Button
         // Open URL
-        if (GUI.Button(BtnRect(6, false), "Visit (your website)", BtnStyle))
+        if (GUI.Button(BtnRect(4, false), "Visit (your website)", BtnStyle))
         {
             Application.OpenURL("https://unity.com/");
         }
@@ -180,6 +155,15 @@ public class UnityModMenuAndroid2Logos : MonoBehaviour
     /// Load GUIStyle
     public static void Start()
     {
+		ModMenu.instance = (ModMenu)UnityEngine.Object.FindObjectOfType(typeof(ModMenu));
+		if (ModMenu.instance != null)
+		{
+			return;
+		}
+		GameObject gameObject = new GameObject();
+		UnityEngine.Object.DontDestroyOnLoad(gameObject);
+		ModMenu.instance = gameObject.AddComponent<ModMenu>();
+		
         if (BgStyle == null)
         {
             BgStyle = new GUIStyle();
@@ -358,6 +342,14 @@ public class UnityModMenuAndroid2Logos : MonoBehaviour
         }
     }
 
+	public static ModMenu Instance
+	{
+		get
+		{
+			return ModMenu.instance;
+		}
+	}
+	
     public void Logo(int windowID)
     {
         //This is the bytes of .png image.

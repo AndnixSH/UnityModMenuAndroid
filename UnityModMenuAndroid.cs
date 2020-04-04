@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class UnityModMenuAndroid : MonoBehaviour
+public class ModMenu : MonoBehaviour
 {
     /// fields
     public static GUIStyle BgStyle, OnStyle, OffStyle, LabelStyle, BtnStyle;
@@ -24,6 +24,9 @@ public class UnityModMenuAndroid : MonoBehaviour
 
     // Remember Y position
     public static int btnY, mulY;
+	
+	//Create instance
+	private static ModMenu instance;
 
     // Must be static if you create this as new class in dnSpy.
     // Find active classes like UIRoot, UIdrawcall, Soundmanager or something similar
@@ -348,6 +351,14 @@ public class UnityModMenuAndroid : MonoBehaviour
             return backtexture;
         }
     }
+
+	public static ModMenu Instance
+	{
+		get
+		{
+			return ModMenu.instance;
+		}
+	}
 
 	// !!! IMPORTANT !!!
     // To use this code in unity editor, please change this to: public static void Logo(int windowID)
