@@ -174,6 +174,15 @@ public class ModMenu : MonoBehaviour
     /// Load GUIStyle
     public static void Start()
     {
+		ModMenu.instance = (ModMenu)UnityEngine.Object.FindObjectOfType(typeof(ModMenu));
+		if (ModMenu.instance != null)
+		{
+			return;
+		}
+		GameObject gameObject = new GameObject();
+		UnityEngine.Object.DontDestroyOnLoad(gameObject);
+		ModMenu.instance = gameObject.AddComponent<ModMenu>();
+		
         if (BgStyle == null)
         {
             BgStyle = new GUIStyle();
